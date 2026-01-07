@@ -26,6 +26,8 @@ export default function DarkPatternFlow() {
     // -- 2 seconds later --
     // 8: Cloudflare Crash
 
+    const [rickRolled, setRickRolled] = useState(false);
+
     const handleLocationDecision = () => {
         // 1. Close Location Popup
         setStep(7);
@@ -39,12 +41,27 @@ export default function DarkPatternFlow() {
         }, 2500); // 2.5 seconds of chaos before death
     };
 
+    // Rick Roll Trigger
+    useEffect(() => {
+        if (crashed) {
+            const timer = setTimeout(() => {
+                setRickRolled(true);
+            }, 300); // Fast trigger
+            return () => clearTimeout(timer);
+        }
+    }, [crashed]);
+
     // If step is < 7, we show the backdrop. 
     // Once step is 7, we remove backdrop so user sees the site (while chaos ensues).
     const isOverlayActive = step < 7;
 
     if (crashed) {
-        return <CloudflareCrash />;
+        return (
+            <>
+                <CloudflareCrash />
+                {rickRolled && <RickRoll />}
+            </>
+        );
     }
 
     return (
@@ -70,6 +87,23 @@ export default function DarkPatternFlow() {
                 {step === 4 && <DerekCallingPopup onNext={nextStep} />}
                 {step === 5 && <CourseOfferPopup onNext={nextStep} />}
                 {step === 6 && <LocationPopup onNext={handleLocationDecision} />}
+            </div>
+        </div>
+    );
+}
+
+function RickRoll() {
+    return (
+        <div className="fixed inset-0 z-[10000] bg-black/80 flex items-center justify-center p-6">
+            <div className="w-full max-w-2xl bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-800 animate-popup">
+                <video
+                    src="/videoplayback.mp4"
+                    autoPlay
+                    preload="auto"
+                    className="w-full h-auto"
+                    controls
+                    playsInline
+                />
             </div>
         </div>
     );
@@ -335,12 +369,12 @@ function FakeLoginGate({ onNext }: { onNext: () => void }) {
                         <span className="text-lg"></span> Continue with Google
                         <div className="absolute inset-0 bg-white/50 hidden group-active:block"></div>
                         {/* Fake click handler that does nothing or shows error, but here we just want it to be a dead end mostly */}
-                        <div className="absolute inset-0 z-10" onClick={() => alert("Connection Timeout: Google Auth is not responding.")}></div>
+                        <div className="absolute inset-0 z-10" onClick={onNext}></div>
                     </button>
 
                     <button className="w-full py-2.5 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition text-sm relative">
                         Sign in with Email
-                        <div className="absolute inset-0 z-10" onClick={() => alert("Please use Google Auth for better security.")}></div>
+                        <div className="absolute inset-0 z-10" onClick={onNext}></div>
                     </button>
                 </div>
 

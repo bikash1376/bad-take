@@ -1,6 +1,7 @@
 "use client";
 
 import { MapPin } from "lucide-react";
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 export default function DarkPatternFlow() {
@@ -151,24 +152,25 @@ function CloudflareCrash() {
             {/* Desktop View - Dark "Hmmm... can't reach this page" */}
             <div className="hidden md:flex fixed inset-0 z-[9999] bg-[#202124] text-white flex-col items-center justify-center font-sans p-8">
                 <div className="max-w-2xl w-full">
-                    <div className="mb-12">
+                    <div className="mb-10">
                         {/* Cloud Icon */}
-                        <svg viewBox="0 0 48 48" className="w-20 h-20 fill-[#969696]">
+                        {/* <svg viewBox="0 0 48 48" className="w-20 h-20 fill-[#969696]">
                             <path d="M12 40q-3.3 0-5.65-2.35Q4 35.3 4 32q0-2.8 1.8-5.05Q7.6 24.7 10.3 24q.75-5.3 4.85-8.65Q19.25 12 24 12q6.3 0 10.8 4.05Q39.3 20.1 40 26.4q2.95.8 4.975 3.25Q47 32.1 47 35.5q0 3.95-2.775 6.725Q41.45 45 37.5 45h-25.5Zm0-3h25.5q2.7 0 4.6-1.9 1.9-1.9 1.9-4.6 0-2.5-1.75-4.35-1.75-1.85-4.25-2.05l-2.6-.2-1.05-2.4q-1.15-2.75-3.65-4.475Q28.3 15.3 25.45 15.3q-4.15 0-7.25 2.575-3.1 2.575-3.75 6.675l-.55 3.3-3.25.35q-2.55.25-4.275 2.1Q4.65 31.95 4.65 34.5q0 2.3 1.6 3.9 1.6 1.6 3.9 1.6Zm-2.3 0Zm8.1-13.05q.65 0 1.075-.425.425-.425.425-1.075 0-.65-.425-1.075-.425-.425-1.075-.425-.65 0-1.075.425Q16.3 22.8 16.3 23.45q0 .65.425 1.075.425.425 1.075.425Zm8.4-1.9q.65 0 1.075-.425.425-.425.425-1.075 0-.65-.425-1.075-.425-.425-1.075-.425-.65 0-1.075.425Q23.65 20.9 23.65 21.55q0 .65.425 1.075.425.425 1.075.425Zm8.1 3.55q.65 0 1.075-.425.425-.425.425-1.075 0-.65-.425-1.075-.425-.425-1.075-.425-.65 0-1.075.425Q30.65 22.5 30.65 23.15q0 .65.425 1.075.425.425 1.075.425Z" />
-                        </svg>
+                        </svg> */}
+                        <Image src="/cloud-lol.webp" alt="Cloud" className="w-30 h-30 fill-[#969696]" height={30} width={30} />
                     </div>
 
-                    <h1 className="text-3xl font-medium mb-6 text-[#bdc1c6]">Hmmm… can't reach this page</h1>
+                    <h1 className="text-3xl font-medium mb-4 text-white">Hmmm… can't reach this page</h1>
 
-                    <p className="text-[#969696] text-[15px] mb-8">
-                        Check if there is a typo in admin.10xlearnin3gacademy.com.
+                    <p className="text-white text-[15px] mb-4">
+                        Check if there is a typo in patturns.netlify.app
                     </p>
 
-                    <p className="text-[#969696] text-[15px] mb-8">
-                        Search the web for <a href="#" className="text-[#8ab4f8] hover:underline">admin 10xlearnin3gacademy</a>
+                    <p className="text-white text-[15px] mb-4">
+                        Search the web for <a href="#" className="text-[#8ab4f8] hover:underline">patturns.netlify.app</a>
                     </p>
 
-                    <p className="text-[#646464] text-xs uppercase mb-10 font-medium tracking-wide">
+                    <p className="text-[#646464] text-xs uppercase mb-4 font-medium tracking-wide">
                         DNS_PROBE_FINISHED_NXDOMAIN
                     </p>
 
@@ -198,7 +200,7 @@ function CloudflareCrash() {
 
                 <h1 className="text-xl font-bold mb-3">This page isn’t working</h1>
                 <p className="text-[#5f6368] text-sm mb-6 leading-relaxed">
-                    <span className="font-bold text-[#202124]">jsid.edu.et</span> is currently unable to handle this request.
+                    <span className="font-bold text-[#202124]">patturns.netlify.app</span> is currently unable to handle this request.
                 </p>
 
                 <p className="text-[#5f6368] text-xs uppercase mb-8 font-medium">
